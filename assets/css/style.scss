@@ -11,7 +11,7 @@
   --beige-deep: #e3d6bd;
   --ink: #1c140d;          // near-black for borders, shadows, text
   --paper: #f6efe0;        // lighter paper tint inside the card
-  --radius: 10px;
+  --radius: 0;             // square / neo-brutalist corners
   --shadow: 6px 6px 0 var(--ink);
   --shadow-sm: 4px 4px 0 var(--ink);
 }
@@ -69,7 +69,7 @@ body {
   font-weight: 800;
   color: var(--beige);
   background: var(--ink);
-  border-radius: 999px;
+  border-radius: 0;
 }
 .hero__title {
   margin: 0;
@@ -94,7 +94,7 @@ body {
   max-width: 80%;
   margin: 0 auto;
   border: 2.5px solid var(--ink);
-  border-radius: 4px;
+  border-radius: 0;
   overflow: hidden;
 }
 .hero__swatches span { flex: 1; height: 16px; }
