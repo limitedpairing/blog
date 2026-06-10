@@ -1,10 +1,7 @@
-title: limitedpairing
-tagline: Notes on code, craft, and curiosity
+title: 케의주 카페 이벤트 후기
 description: >-
-  The personal blog of limitedpairing — a single-page Jekyll site
-  hosted on GitHub Pages.
+  케의주 카페 이벤트의 작업기 — 일회성 후기 페이지.
 author: limitedpairing
-email: behaviodd@gmail.com
 
 # GitHub Pages — served at https://limitedpairing.github.io/blog
 url: "https://limitedpairing.github.io"
@@ -12,18 +9,10 @@ baseurl: "/blog"
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
-permalink: /:year/:month/:day/:title/
+sass:
+  style: compressed
 
-kramdown:
-  syntax_highlighter_opts:
-    span:
-      line_numbers: false
-
-# Social / links
-github_username: limitedpairing
-
-# Exclude from processing
+# Single-page event recap — no posts, no feed, no extra menus.
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -31,6 +20,3 @@ exclude:
   - vendor
   - .sass-cache
   - .jekyll-cache
-
-sass:
-  style: compressed
