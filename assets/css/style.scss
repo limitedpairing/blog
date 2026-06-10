@@ -2,15 +2,18 @@
 # Front matter so Jekyll processes this Sass file.
 ---
 
-// ---- Design tokens (luckydraw-maker inspired: orange page, beige card) ----
+// ---- Design tokens — neo-brutalist retro ----
+// Orange RGB 190,81,43 / Beige RGB 238,228,210
 :root {
-  --orange: #f3742a;        // page background
-  --orange-deep: #d9551a;   // accents / links
-  --beige: #fbf3e2;         // container background
-  --beige-edge: #f0e4c8;    // soft borders inside the card
-  --ink: #3b2412;           // primary text (warm dark brown)
-  --ink-soft: #7a6249;      // secondary text
-  --card-radius: 26px;
+  --orange: #be512b;
+  --orange-soft: #cf6a40;
+  --beige: #eee4d2;
+  --beige-deep: #e3d6bd;
+  --ink: #1c140d;          // near-black for borders, shadows, text
+  --paper: #f6efe0;        // lighter paper tint inside the card
+  --radius: 10px;
+  --shadow: 6px 6px 0 var(--ink);
+  --shadow-sm: 4px 4px 0 var(--ink);
 }
 
 * { box-sizing: border-box; }
@@ -19,7 +22,9 @@ html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  background: var(--orange);
+  background-color: var(--orange);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.07) 1.2px, transparent 1.2px);
+  background-size: 13px 13px;
   color: var(--ink);
   font-family: "Pretendard", "Pretendard Variable", -apple-system,
     BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Malgun Gothic",
@@ -27,13 +32,14 @@ body {
   font-size: 17px;
   line-height: 1.75;
   word-break: keep-all;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
 // ---- Page + container ----
 .page {
   min-height: 100vh;
-  padding: 20px 14px calc(28px + env(safe-area-inset-bottom));
+  padding: 22px 16px calc(30px + env(safe-area-inset-bottom));
 }
 
 .container {
@@ -41,105 +47,130 @@ body {
   max-width: 580px;
   margin: 0 auto;
   background: var(--beige);
-  border-radius: var(--card-radius);
-  border: 2px solid rgba(120, 70, 20, 0.12);
-  box-shadow: 0 18px 40px rgba(120, 50, 10, 0.22);
-  padding: 30px 22px 26px;
-  overflow: hidden;
+  border: 3px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 8px 8px 0 var(--ink);
+  padding: 26px 20px 24px;
 }
 
 // ---- Hero ----
 .hero {
   text-align: center;
-  padding: 12px 6px 22px;
-  border-bottom: 2px dashed var(--beige-edge);
-  margin-bottom: 24px;
+  padding: 6px 0 22px;
+  margin-bottom: 26px;
+  border-bottom: 3px solid var(--ink);
 }
 .hero__eyebrow {
-  margin: 0 0 10px;
-  font-size: .8rem;
-  letter-spacing: .22em;
-  font-weight: 700;
-  color: var(--orange-deep);
+  display: inline-block;
+  margin: 0 0 16px;
+  padding: 5px 14px;
+  font-size: .72rem;
+  letter-spacing: .2em;
+  font-weight: 800;
+  color: var(--beige);
+  background: var(--ink);
+  border-radius: 999px;
 }
 .hero__title {
   margin: 0;
-  font-size: 2.05rem;
-  line-height: 1.2;
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  font-size: 2.15rem;
+  line-height: 1.12;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  font-style: italic;
   color: var(--ink);
 }
 .hero__sub {
-  margin: 14px 0 0;
-  color: var(--ink-soft);
+  margin: 16px 0 18px;
+  color: var(--orange);
+  font-weight: 700;
   font-size: .95rem;
 }
+.hero__swatches {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  width: 220px;
+  max-width: 80%;
+  margin: 0 auto;
+  border: 2.5px solid var(--ink);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.hero__swatches span { flex: 1; height: 16px; }
 
 // ---- Body text ----
 .post p { margin: 0 0 1.15rem; }
-.post em { font-style: normal; font-weight: 700; color: var(--orange-deep); }
+.post em { font-style: normal; font-weight: 800; color: var(--orange); }
 
+// Section headings as neo-brutalist tags
 .post h2 {
-  margin: 2.4rem 0 1rem;
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: var(--ink);
-  padding-bottom: .5rem;
-  border-bottom: 2px solid var(--beige-edge);
+  display: inline-block;
+  margin: 2.6rem 0 1.2rem;
+  padding: 7px 15px;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--beige);
+  background: var(--orange);
+  border: 2.5px solid var(--ink);
+  border-radius: 7px;
+  box-shadow: var(--shadow-sm);
+  transform: rotate(-1.2deg);
 }
 
 // ---- Q&A list (사장님 문답) ----
 .qa {
   list-style: none;
-  margin: 0 0 1.15rem;
-  padding: 14px 16px;
-  background: rgba(243, 116, 42, 0.08);
-  border: 1px solid var(--beige-edge);
-  border-radius: 14px;
+  margin: 0 0 1.2rem;
+  padding: 16px 18px;
+  background: var(--paper);
+  border: 2.5px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
 }
-.qa li { margin: .35rem 0; font-weight: 600; }
+.qa li { margin: .4rem 0; font-weight: 700; }
 
 // ---- Collapsible "접기" section ----
 .fold {
-  margin: 1.5rem 0;
-  background: rgba(243, 116, 42, 0.06);
-  border: 1px solid var(--beige-edge);
-  border-radius: 16px;
-  padding: 4px 18px;
+  margin: 1.6rem 0;
+  background: var(--paper);
+  border: 2.5px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 2px 18px;
 }
 .fold > summary {
   cursor: pointer;
-  font-weight: 700;
-  color: var(--orange-deep);
-  padding: 12px 0;
+  font-weight: 800;
+  color: var(--orange);
+  padding: 14px 0;
   list-style: none;
 }
 .fold > summary::-webkit-details-marker { display: none; }
 .fold > summary::before { content: "▸ "; }
 .fold[open] > summary::before { content: "▾ "; }
-.fold[open] > summary { border-bottom: 1px dashed var(--beige-edge); margin-bottom: 10px; }
+.fold[open] > summary { border-bottom: 2px dashed var(--ink); margin-bottom: 12px; }
 
 // ---- Photos (graceful placeholder until the image is added) ----
-.photo {
-  margin: 1.4rem 0;
-}
+.photo { margin: 1.5rem 0; }
 .photo > img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 16px;
-  border: 1px solid rgba(120, 70, 20, 0.12);
+  border: 2.5px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 .photo__ph { display: none; }
 .photo figcaption {
-  margin-top: 8px;
+  margin-top: 10px;
   text-align: center;
   font-size: .85rem;
-  color: var(--ink-soft);
+  font-weight: 700;
+  color: var(--orange);
 }
 
-// When the image is missing, swap to a labeled placeholder box.
+// Missing image → labeled placeholder box.
 .photo--missing > img { display: none; }
 .photo--missing .photo__ph {
   display: flex;
@@ -148,39 +179,43 @@ body {
   text-align: center;
   min-height: 180px;
   padding: 20px;
-  border-radius: 16px;
-  border: 2px dashed var(--orange);
-  background: rgba(243, 116, 42, 0.07);
-  color: var(--orange-deep);
-  font-weight: 700;
+  border-radius: var(--radius);
+  border: 3px dashed var(--ink);
+  background: repeating-linear-gradient(
+    45deg, var(--paper), var(--paper) 12px,
+    var(--beige-deep) 12px, var(--beige-deep) 24px);
+  box-shadow: var(--shadow-sm);
+  color: var(--ink);
+  font-weight: 800;
   font-size: .9rem;
 }
 
 // ---- Sign-off ----
 .signoff {
-  margin-top: 2rem !important;
+  margin-top: 2.2rem !important;
   padding: 18px 20px;
   text-align: center;
-  font-weight: 800;
-  color: var(--orange-deep);
-  background: rgba(243, 116, 42, 0.1);
-  border-radius: 16px;
+  font-weight: 900;
+  color: var(--beige);
+  background: var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
 }
 
 // ---- Footer ----
 .site-footer {
   text-align: center;
-  margin: 22px auto 0;
+  margin: 24px auto 0;
   max-width: 580px;
   color: var(--beige);
+  font-weight: 700;
   font-size: .8rem;
-  opacity: .92;
 }
 .site-footer p { margin: 0; }
 
-// ---- Larger screens: a touch more breathing room ----
+// ---- Larger screens ----
 @media (min-width: 600px) {
   body { font-size: 18px; }
-  .container { padding: 40px 38px 32px; }
-  .hero__title { font-size: 2.4rem; }
+  .container { padding: 38px 36px 30px; }
+  .hero__title { font-size: 2.5rem; }
 }
