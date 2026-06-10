@@ -19,5 +19,40 @@
       {{ content }}
     </div>
   </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="확대 이미지">
+    <button class="lightbox__close" type="button" aria-label="닫기">&times;</button>
+    <img class="lightbox__img" alt="">
+  </div>
+  <script>
+  (function () {
+    var lb = document.getElementById('lightbox');
+    if (!lb) return;
+    var lbImg = lb.querySelector('.lightbox__img');
+    function open(src) {
+      lbImg.src = src;
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      lbImg.removeAttribute('src');
+    }
+    document.addEventListener('click', function (e) {
+      var img = e.target.closest('.photo > img');
+      if (img && !img.closest('.photo--missing') && img.naturalWidth > 0) {
+        open(img.currentSrc || img.src);
+        return;
+      }
+      if (e.target === lb || e.target.closest('.lightbox__close') || e.target === lbImg) close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lb.classList.contains('open')) close();
+    });
+  })();
+  </script>
 </body>
 </html>
