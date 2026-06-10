@@ -1,0 +1,36 @@
+title: limitedpairing
+tagline: Notes on code, craft, and curiosity
+description: >-
+  The personal blog of limitedpairing — a single-page Jekyll site
+  hosted on GitHub Pages.
+author: limitedpairing
+email: behaviodd@gmail.com
+
+# GitHub Pages — served at https://limitedpairing.github.io/blog
+url: "https://limitedpairing.github.io"
+baseurl: "/blog"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+
+kramdown:
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+
+# Social / links
+github_username: limitedpairing
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+
+sass:
+  style: compressed
