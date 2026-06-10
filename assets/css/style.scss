@@ -5,12 +5,12 @@
 // ---- Design tokens — neo-brutalist retro ----
 // Orange RGB 190,81,43 / Beige RGB 238,228,210
 :root {
-  --orange: #be512b;
-  --orange-soft: #cf6a40;
-  --beige: #eee4d2;
-  --beige-deep: #e3d6bd;
-  --ink: #1c140d;          // near-black for borders, shadows, text
-  --paper: #f6efe0;        // lighter paper tint inside the card
+  --orange: #e9531c;       // vivid poster orange (MD LIST palette)
+  --orange-soft: #f47a3f;
+  --beige: #f4edda;        // bright cream
+  --beige-deep: #e7dabd;
+  --ink: #181410;          // near-black for borders, shadows, text
+  --paper: #fbf6ea;        // lighter paper tint inside the card
   --radius: 0;             // square / neo-brutalist corners
   --shadow: 6px 6px 0 var(--ink);
   --shadow-sm: 4px 4px 0 var(--ink);
@@ -29,7 +29,7 @@ body {
   font-family: "Pretendard", "Pretendard Variable", -apple-system,
     BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Malgun Gothic",
     sans-serif;
-  font-size: 17px;
+  font-size: 13px;
   line-height: 1.75;
   word-break: keep-all;
   overflow-x: hidden;
@@ -86,19 +86,6 @@ body {
   font-weight: 700;
   font-size: .95rem;
 }
-.hero__swatches {
-  display: flex;
-  justify-content: center;
-  gap: 0;
-  width: 220px;
-  max-width: 80%;
-  margin: 0 auto;
-  border: 2.5px solid var(--ink);
-  border-radius: 0;
-  overflow: hidden;
-}
-.hero__swatches span { flex: 1; height: 16px; }
-
 // ---- Body text ----
 .post p { margin: 0 0 1.15rem; }
 .post em { font-style: normal; font-weight: 800; color: var(--orange); }
@@ -113,7 +100,7 @@ body {
   color: var(--beige);
   background: var(--orange);
   border: 2.5px solid var(--ink);
-  border-radius: 7px;
+  border-radius: 0;
   box-shadow: var(--shadow-sm);
   transform: rotate(-1.2deg);
 }
@@ -215,7 +202,6 @@ body {
 
 // ---- Larger screens ----
 @media (min-width: 600px) {
-  body { font-size: 18px; }
   .container { padding: 38px 36px 30px; }
   .hero__title { font-size: 2.5rem; }
 }
