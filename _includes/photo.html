@@ -2,6 +2,5 @@
   <img src="{{ '/assets/images/' | append: include.file | relative_url }}"
        alt="{{ include.caption | default: '이벤트 사진' }}" loading="lazy"
        onerror="this.parentNode.classList.add('photo--missing')">
-  <span class="photo__ph">사진 자리{% if include.caption %} · {{ include.caption }}{% endif %}</span>
-  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+  <span class="photo__ph">사진 자리</span>
 </figure>
