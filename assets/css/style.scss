@@ -189,10 +189,11 @@ body {
 }
 
 // ---- Lightbox (tap to enlarge) ----
+body.lb-lock { overflow: hidden; }
 .lightbox {
   position: fixed;
   inset: 0;
-  z-index: 1000;
+  z-index: 9999;
   display: none;
   align-items: center;
   justify-content: center;
